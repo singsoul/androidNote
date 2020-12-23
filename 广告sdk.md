@@ -6,11 +6,12 @@
 //导入我们广告库的sdk
 implementation 'com.boniu.ad:gdtsdk:4.294.1164@aar'
 implementation 'com.boniu.ad:csjsdk:3.2.5.1@aar'
-implementation 'com.boniu.ad:adsdk:1.1.3@aar'
+implementation 'com.boniu.ad:adsdk:1.1.4@aar'
 
 implementation 'com.squareup.okhttp3:okhttp:4.0.1'
 implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-implementation 'com.squareup.retrofit2:adapter-rxjava:2.5.0'
+implementation("com.squareup.retrofit2:adapter-rxjava2:2.2.0")
+            { exclude group: 'com.squareup.okhttp3' }
 implementation 'com.google.code.gson:gson:2.8.6'
 implementation 'com.github.bumptech.glide:glide:4.10.0'
 
