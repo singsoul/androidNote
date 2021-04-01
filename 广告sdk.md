@@ -4,9 +4,11 @@
 
 ```java
 //导入我们广告库的sdk
-implementation 'com.boniu.ad:gdtsdk:4.294.1164@aar'
-implementation 'com.boniu.ad:csjsdk:3.2.5.1@aar'
-implementation 'com.boniu.ad:adsdk:1.1.4@aar'
+    implementation 'com.boniu.ad:gdtsdk:4.294.1164@aar'
+    implementation 'com.boniu.ad:csjsdk:3.2.5.1@aar'
+    //快手
+      implementation 'com.boniu.ad:kssdk:3.3.13@aar'
+    implementation 'com.boniu.ad:adsdk:1.1.5@aar'
 
 implementation 'com.squareup.okhttp3:okhttp:4.0.1'
 implementation 'com.squareup.retrofit2:retrofit:2.5.0'
@@ -39,6 +41,13 @@ maven { url 'http://nexus.rhinox.cn/repository/maven-public/'}
 
 <!-- 如果有视频相关的广告且使用textureView播放，请务必添加，否则黑屏 -->
 <uses-permission android:name="android.permission.WAKE_LOCK" />
+  
+  <!--SDK内⾃定义的权限，与下载相关，aar中已经申请-->
+<permission
+android:name="${applicationId}.permission.KW_SDK_BROADCAST"
+android:protectionLevel="signature" />
+<uses-permission android:name="${applicationId}.permission.KW_SDK_BROADCAST"
+/>
 ```
 
 #### 1.2.2 下载配置
@@ -136,6 +145,18 @@ maven { url 'http://nexus.rhinox.cn/repository/maven-public/'}
     -keep class com.tencent.** {
         *;
     }
+
+#快手
+-keep class org.chromium.** {*;}
+-keep class org.chromium.** { *; }
+-keep class aegon.chrome.** { *; }
+-keep class com.kwai.**{ *; }
+-keep class com.kwad.**{ *; }
+-keepclasseswithmembernames class * {
+native <methods>; }-dontwarn com.kwai.**
+-dontwarn com.kwad.**
+-dontwarn com.ksad.**
+-dontwarn aegon.chrome.**
 ```
 
 ### 1.4初始化sdk
