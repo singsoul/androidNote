@@ -4,10 +4,10 @@
 
 ```java
 //导入我们广告库的sdk
-    implementation 'com.boniu.ad:gdtsdk:4.294.1164@aar'
-    implementation 'com.boniu.ad:csjsdk:3.2.5.1@aar'
+    implementation 'com.boniu.ad:gdtsdk:4.294.1165@aar'
+    implementation 'com.boniu.ad:csjsdk:3.2.5.2@aar'
     //快手
-      implementation 'com.boniu.ad:kssdk:3.3.13@aar'
+      implementation 'com.boniu.ad:kssdk:3.3.14@aar'
     implementation 'com.boniu.ad:adsdk:1.1.5@aar'
 
 implementation 'com.squareup.okhttp3:okhttp:4.0.1'
