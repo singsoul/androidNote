@@ -3,13 +3,21 @@
 ### 1.1导入sdk依赖库
 
 ```java
+//版本号 1.1.7
+
 //导入我们广告库的sdk
-    implementation 'com.boniu.ad:gdtsdk:4.294.1165@aar'
-    implementation 'com.boniu.ad:csjsdk:3.2.5.2@aar'
+    implementation 'com.boniu.ad:gdtsdk:4.351.1221@aar'
+    implementation 'com.boniu.ad:csjsdk:3.6.0.0@aar'
     //快手
       implementation 'com.boniu.ad:kssdk:3.3.14@aar'
-    implementation 'com.boniu.ad:adsdk:1.1.5@aar'
+    implementation 'com.boniu.ad:adsdk:1.1.7@aar'
 
+ //版本号 1.1.8
+    implementation 'com.boniu.ad:gdtsdk:4.351.1221@aar'
+    implementation 'com.boniu.ad:csjsdk:3.2.5.1@aar'
+    implementation 'com.boniu.ad:kssdk:3.3.13@aar'
+    implementation 'com.boniu.ad:adsdk:1.1.7@aar'
+  
 implementation 'com.squareup.okhttp3:okhttp:4.0.1'
 implementation 'com.squareup.retrofit2:retrofit:2.5.0'
 implementation("com.squareup.retrofit2:adapter-rxjava2:2.2.0")
@@ -194,6 +202,11 @@ private SplashAdManager.IStartNext iStartNext = new SplashAdManager.IStartNext()
         Log.e("MainActivity", "onerror: " + msg );
         gotoNext();
     }
+  //广告展示放回 - 一般这个时候显示 底部那个跳转第三方的弹窗
+  @Override
+        public void onAdShow() {
+            llDisanfang.setVisibility(View.VISIBLE);
+        }
 
 };
 ```
