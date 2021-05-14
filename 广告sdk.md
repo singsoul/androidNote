@@ -16,7 +16,7 @@
     implementation 'com.boniu.ad:gdtsdk:4.351.1221@aar'
     implementation 'com.boniu.ad:csjsdk:3.2.5.1@aar'
     implementation 'com.boniu.ad:kssdk:3.3.13@aar'
-    implementation 'com.boniu.ad:adsdk:1.1.7@aar'
+    implementation 'com.boniu.ad:adsdk:1.1.8@aar'
   
 implementation 'com.squareup.okhttp3:okhttp:4.0.1'
 implementation 'com.squareup.retrofit2:retrofit:2.5.0'
