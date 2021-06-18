@@ -3,6 +3,13 @@
 ### 1.1导入sdk依赖库
 
 ```java
+
+ //版本号 1.1.9
+    implementation 'com.boniu.ad:gdtsdk:4.362.1232@aar'
+    implementation 'com.boniu.ad:csjsdk:3.2.5.1@aar'
+    implementation 'com.boniu.ad:kssdk:3.3.13@aar'
+    implementation 'com.boniu.ad:adsdk:1.1.9@aar'
+
 //版本号 1.1.7
 
 //导入我们广告库的sdk
