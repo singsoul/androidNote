@@ -4,26 +4,12 @@
 
 ```java
 
- //版本号 1.1.9
-    implementation 'com.boniu.ad:gdtsdk:4.362.1232@aar'
-    implementation 'com.boniu.ad:csjsdk:3.2.5.1@aar'
+ //版本号 1.2.0
+    implementation 'com.boniu.ad:gdtsdk:4.370.1240@aar'
+    implementation 'com.boniu.ad:csjsdk:3.7.0.2@aar'
     implementation 'com.boniu.ad:kssdk:3.3.13@aar'
-    implementation 'com.boniu.ad:adsdk:1.1.9@aar'
-
-//版本号 1.1.7
-
-//导入我们广告库的sdk
-    implementation 'com.boniu.ad:gdtsdk:4.351.1221@aar'
-    implementation 'com.boniu.ad:csjsdk:3.6.0.0@aar'
-    //快手
-      implementation 'com.boniu.ad:kssdk:3.3.14@aar'
-    implementation 'com.boniu.ad:adsdk:1.1.7@aar'
-
- //版本号 1.1.8
-    implementation 'com.boniu.ad:gdtsdk:4.351.1221@aar'
-    implementation 'com.boniu.ad:csjsdk:3.2.5.1@aar'
-    implementation 'com.boniu.ad:kssdk:3.3.13@aar'
-    implementation 'com.boniu.ad:adsdk:1.1.8@aar'
+    implementation 'com.boniu.ad:adsdk:1.2.0@aar'
+//自3400版本开始，穿山甲支持了Android R，引入了Android R的 <queries> 标签,需要对gradle版本进行限制，限制范围为：3.3.3、 3.4.3、 3.5.4、3.6.4、4.0.1 ，开发者根据自身情况酌情升级
   
 implementation 'com.squareup.okhttp3:okhttp:4.0.1'
 implementation 'com.squareup.retrofit2:retrofit:2.5.0'
@@ -44,25 +30,7 @@ maven { url 'http://nexus.rhinox.cn/repository/maven-public/'}
 ```java
 <!--必要权限-->
 <uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
-<uses-permission android:name="android.permission.GET_TASKS"/>
 
-<!--可选，穿山甲提供“获取地理位置权限”和“不给予地理位置权限，开发者传入地理位置参数”两种方式上报用户位置，两种方式均可不选，添加位置权限或参数将帮助投放定位广告-->
-<!--请注意：无论通过何种方式提供给穿山甲用户地理位置，均需向用户声明地理位置权限将应用于穿山甲广告投放，穿山甲不强制获取地理位置信息-->
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-<!-- 如果有视频相关的广告且使用textureView播放，请务必添加，否则黑屏 -->
-<uses-permission android:name="android.permission.WAKE_LOCK" />
-  
-  <!--SDK内⾃定义的权限，与下载相关，aar中已经申请-->
-<permission
-android:name="${applicationId}.permission.KW_SDK_BROADCAST"
-android:protectionLevel="signature" />
-<uses-permission android:name="${applicationId}.permission.KW_SDK_BROADCAST"
-/>
 ```
 
 #### 1.2.2 下载配置
@@ -105,6 +73,19 @@ android:protectionLevel="signature" />
 //file_paths
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
+   <external-path name="tt_external_root" path="." />
+   <external-path name="tt_external_download" path="Download" />
+   <external-files-path name="tt_external_files_download" path="Download" />
+   <files-path name="tt_internal_file_download" path="Download" />
+   <cache-path name="tt_internal_cache_download" path="Download" />
+
+
+    <external-cache-path
+        name="gdt_sdk_download_path1"
+        path="com_qq_e_download" />
+    <cache-path
+        name="gdt_sdk_download_path2"
+        path="com_qq_e_download" />
     <root-path
         name="root"
         path="" />
@@ -125,12 +106,6 @@ android:protectionLevel="signature" />
         path="." />
 
 
-    <external-cache-path
-        name="gdt_sdk_download_path1"
-        path="com_qq_e_download" />
-    <cache-path
-        name="gdt_sdk_download_path2"
-        path="com_qq_e_download" />
 </paths>
 
 ```
@@ -141,7 +116,9 @@ android:protectionLevel="signature" />
 #穿山甲
 -keep class com.bytedance.sdk.openadsdk.** { *; }
 -keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
--keep class com.pgl.sys.ces.* {*;}
+-keep class com.pgl.sys.ces.** {*;}
+-keep class com.bytedance.embed_dr.** {*;}
+-keep class com.bytedance.embedapplog.** {*;}
 #直客
 -keep class com.boniu.ad.bean.** { *; }
 # 嵌入广点通sdk时必须添加
